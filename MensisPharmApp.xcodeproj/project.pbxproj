@@ -16,11 +16,14 @@
 		72AD9E2B03B5E6EE52D4A27A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3564959FBEB724F6A3B80565 /* HomeView.swift */; };
 		7519F1E1C676A32B43C0426A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1409B6BCC499BA4892903B7 /* MessageUI.framework */; };
 		77C84BD69A6B124AA793ECE5 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA99BCA267C2F63A0C194AEB /* ProductDetailView.swift */; };
+		85A46A35D75C709C432EDFD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B97475D5AFE2F7BCA6C4FA21 /* Assets.xcassets */; };
 		92CD56B245FE66C315429F21 /* MensisPharmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E203713A28EAD308220F7 /* MensisPharmApp.swift */; };
 		9A661BCC6C32EEFA9AFC94F0 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB039EBC6365A082E8543B0 /* CartView.swift */; };
 		B1EC2B6DE6B1B3AF460E41A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AD4A685138FCEBD2D992A7 /* ContentView.swift */; };
 		C2B22D8D2DAABFF9A80BB60C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BA41AABFA022708199AE8B /* Product.swift */; };
 		C8447FAAABCFDEC5F52C23B2 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ACB2644210B88659B3CCB5 /* ProductListView.swift */; };
+		C9F8AADF5B55966FED01A4D9 /* ProductImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE9A158DB044ADE2182C53B /* ProductImageView.swift */; };
+		DC1CD30AA380671F07FDEBA0 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79CB54D7C7070FE66477F1E /* LanguageManager.swift */; };
 		E6C544BDF042CD895188C117 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04856930748E91CFD50B0B23 /* AboutView.swift */; };
 		F6D9698E65A479AFD4AB8AFA /* MailComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D3B3A61F26CE4AE58D53D9 /* MailComposeView.swift */; };
 /* End PBXBuildFile section */
@@ -35,12 +38,15 @@
 		48AD4A685138FCEBD2D992A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5EB039EBC6365A082E8543B0 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		79D57AA025F8C083B9D7C9E7 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		7FE9A158DB044ADE2182C53B /* ProductImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageView.swift; sourceTree = "<group>"; };
 		8E4DEF0741F4ADF9C558CE30 /* MensisPharmApp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = MensisPharmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9474DF91A882680EE24D2F7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A01E203713A28EAD308220F7 /* MensisPharmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MensisPharmApp.swift; sourceTree = "<group>"; };
 		A3D3B3A61F26CE4AE58D53D9 /* MailComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeView.swift; sourceTree = "<group>"; };
 		A74B62E27D6B75D650B743E3 /* OrderSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSuccessView.swift; sourceTree = "<group>"; };
 		A9BA41AABFA022708199AE8B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		B97475D5AFE2F7BCA6C4FA21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C79CB54D7C7070FE66477F1E /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		CCFE1062103F319016596F7B /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 		EA99BCA267C2F63A0C194AEB /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		F1409B6BCC499BA4892903B7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -75,6 +81,7 @@
 				3564959FBEB724F6A3B80565 /* HomeView.swift */,
 				A74B62E27D6B75D650B743E3 /* OrderSuccessView.swift */,
 				EA99BCA267C2F63A0C194AEB /* ProductDetailView.swift */,
+				7FE9A158DB044ADE2182C53B /* ProductImageView.swift */,
 				06ACB2644210B88659B3CCB5 /* ProductListView.swift */,
 			);
 			path = Views;
@@ -110,8 +117,10 @@
 		96998D1617EEFC17D2DDD4BF /* MensisPharmApp */ = {
 			isa = PBXGroup;
 			children = (
+				B97475D5AFE2F7BCA6C4FA21 /* Assets.xcassets */,
 				48AD4A685138FCEBD2D992A7 /* ContentView.swift */,
 				9474DF91A882680EE24D2F7B /* Info.plist */,
+				C79CB54D7C7070FE66477F1E /* LanguageManager.swift */,
 				A01E203713A28EAD308220F7 /* MensisPharmApp.swift */,
 				887BFF99E912F12F05650485 /* Models */,
 				C4CCBC713AA21213E0AE9E4E /* Services */,
@@ -146,6 +155,7 @@
 			buildConfigurationList = EAD0CD457E22690B6DCD6293 /* Build configuration list for PBXNativeTarget "MensisPharmApp" */;
 			buildPhases = (
 				1E22AE825A38F1D5933854B1 /* Sources */,
+				C57CB91C60C4D10F95EA4720 /* Resources */,
 				2446B9DCDF9BF2B731E9D4A5 /* Frameworks */,
 			);
 			buildRules = (
@@ -192,6 +202,17 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		C57CB91C60C4D10F95EA4720 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85A46A35D75C709C432EDFD9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1E22AE825A38F1D5933854B1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -205,11 +226,13 @@
 				B1EC2B6DE6B1B3AF460E41A0 /* ContentView.swift in Sources */,
 				1C21559ECD1E3BEF0708E56A /* CustomerInfo.swift in Sources */,
 				72AD9E2B03B5E6EE52D4A27A /* HomeView.swift in Sources */,
+				DC1CD30AA380671F07FDEBA0 /* LanguageManager.swift in Sources */,
 				F6D9698E65A479AFD4AB8AFA /* MailComposeView.swift in Sources */,
 				92CD56B245FE66C315429F21 /* MensisPharmApp.swift in Sources */,
 				1585EB2E6DF3D4244DCA9329 /* OrderSuccessView.swift in Sources */,
 				C2B22D8D2DAABFF9A80BB60C /* Product.swift in Sources */,
 				77C84BD69A6B124AA793ECE5 /* ProductDetailView.swift in Sources */,
+				C9F8AADF5B55966FED01A4D9 /* ProductImageView.swift in Sources */,
 				C8447FAAABCFDEC5F52C23B2 /* ProductListView.swift in Sources */,
 				369F5015D76CD41905C12C87 /* ProductStore.swift in Sources */,
 			);

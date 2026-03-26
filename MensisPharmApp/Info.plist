@@ -23,9 +23,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSContactsUsageDescription</key>
-	<string></string>
+	<string>Used to pre-fill order contact information.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>Used to attach product images to orders.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

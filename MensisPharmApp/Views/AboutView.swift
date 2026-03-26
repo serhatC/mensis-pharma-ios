@@ -3,10 +3,10 @@ import SwiftUI
 struct AboutView: View {
     @EnvironmentObject var lang: LanguageManager
 
-    let phone = "+90 XXX XXX XX XX"
+    let phone = "+90 (850) 302 5465"
     let email = "info@mensispharma.com"
     let website = "www.mensispharma.com"
-    let address = "Adres bilgisi"
+    let address = "Güzelyalı Mh. 81029 Sk. No:4/B 01170 Çukurova/Adana"
 
     var body: some View {
         NavigationStack {

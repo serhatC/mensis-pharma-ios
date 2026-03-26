@@ -3,6 +3,7 @@ import SwiftUI
 struct ProductListView: View {
     let category: Category
     @EnvironmentObject var cart: CartViewModel
+    @EnvironmentObject var lang: LanguageManager
 
     var body: some View {
         ScrollView {
@@ -17,7 +18,7 @@ struct ProductListView: View {
             .padding()
         }
         .background(Color(.systemGroupedBackground))
-        .navigationTitle(category.name)
+        .navigationTitle(lang.s(category.name, category.nameEN))
         .navigationBarTitleDisplayMode(.large)
     }
 }
@@ -25,6 +26,7 @@ struct ProductListView: View {
 struct ProductCardView: View {
     let product: Product
     @EnvironmentObject var cart: CartViewModel
+    @EnvironmentObject var lang: LanguageManager
 
     var body: some View {
         HStack(spacing: 14) {
@@ -33,11 +35,11 @@ struct ProductCardView: View {
 
             // Info
             VStack(alignment: .leading, spacing: 4) {
-                Text(product.name)
+                Text(lang.s(product.name, product.nameEN))
                     .font(.headline)
                     .foregroundColor(.primary)
                     .lineLimit(2)
-                Text(product.description)
+                Text(lang.s(product.description, product.descriptionEN))
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                     .lineLimit(2)

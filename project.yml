@@ -38,5 +38,5 @@ targets:
         UIApplicationSceneManifest:
           UIApplicationSupportsMultipleScenes: false
         UILaunchScreen: {}
-        NSContactsUsageDescription: ""
-        NSPhotoLibraryUsageDescription: ""
+        NSContactsUsageDescription: "Used to pre-fill order contact information."
+        NSPhotoLibraryUsageDescription: "Used to attach product images to orders."

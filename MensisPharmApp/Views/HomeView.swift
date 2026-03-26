@@ -10,6 +10,7 @@ struct HomeView: View {
             ScrollView {
                 VStack(spacing: 0) {
                     heroBanner
+                    rainbowSeparator
                     searchBar
                         .padding(.horizontal)
                         .padding(.vertical, 12)
@@ -97,6 +98,17 @@ struct HomeView: View {
         }
     }
 
+    private var rainbowSeparator: some View {
+        HStack(spacing: 0) {
+            Color(red: 0.87, green: 0.16, blue: 0.16) // red
+            Color(red: 0.95, green: 0.50, blue: 0.10) // orange
+            Color(red: 0.98, green: 0.78, blue: 0.08) // yellow
+            Color(red: 0.22, green: 0.67, blue: 0.29) // green
+            Color(red: 0.10, green: 0.46, blue: 0.82) // blue
+        }
+        .frame(height: 6)
+    }
+
     private var searchBar: some View {
         HStack {
             Image(systemName: "magnifyingglass").foregroundColor(.secondary)
@@ -166,12 +178,24 @@ struct CategoryCardView: View {
 
     var body: some View {
         VStack(spacing: 10) {
-            Text(category.icon)
-                .font(.system(size: 38))
-                .frame(width: 64, height: 64)
-                .background(category.color.opacity(0.15))
-                .clipShape(Circle())
-            Text(category.name)
+            Group {
+                if let imgName = category.imageName, UIImage(named: imgName) != nil {
+                    Image(imgName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 120)
+                        .cornerRadius(12)
+                } else {
+                    Text(category.icon)
+                        .font(.system(size: 48))
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 120)
+                        .background(category.color.opacity(0.15))
+                        .cornerRadius(12)
+                }
+            }
+            Text(lang.s(category.name, category.nameEN))
                 .font(.subheadline)
                 .fontWeight(.semibold)
                 .foregroundColor(.primary)
@@ -191,16 +215,17 @@ struct CategoryCardView: View {
 
 struct ProductRowView: View {
     let product: Product
+    @EnvironmentObject var lang: LanguageManager
 
     var body: some View {
         HStack(spacing: 12) {
             ProductImageView(product: product, size: 44, cornerRadius: 10)
             VStack(alignment: .leading, spacing: 2) {
-                Text(product.name)
+                Text(lang.s(product.name, product.nameEN))
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .foregroundColor(.primary)
-                Text(product.description)
+                Text(lang.s(product.description, product.descriptionEN))
                     .font(.caption)
                     .foregroundColor(.secondary)
                     .lineLimit(1)

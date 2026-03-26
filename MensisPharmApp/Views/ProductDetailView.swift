@@ -37,7 +37,7 @@ struct ProductDetailView: View {
 
                     // Name & Unit
                     VStack(alignment: .leading, spacing: 6) {
-                        Text(product.name)
+                        Text(lang.s(product.name, product.nameEN))
                             .font(.title2)
                             .fontWeight(.bold)
                         HStack {
@@ -48,7 +48,7 @@ struct ProductDetailView: View {
                                 .font(.subheadline)
                                 .foregroundColor(.brandPrimary)
                         }
-                        Text(product.description)
+                        Text(lang.s(product.description, product.descriptionEN))
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
@@ -60,7 +60,7 @@ struct ProductDetailView: View {
                         Label(lang.s("Ürün Detayları", "Product Details"), systemImage: "info.circle.fill")
                             .font(.headline)
                             .foregroundColor(.brandPrimary)
-                        Text(product.details)
+                        Text(lang.s(product.details, product.detailsEN))
                             .font(.body)
                             .foregroundColor(.primary)
                             .lineSpacing(4)
