@@ -10,6 +10,22 @@ struct Product: Identifiable, Hashable {
     let categoryId: String
     var isAvailable: Bool
     let imageSystemName: String
+    /// Optional: name of an image in Assets.xcassets (e.g. "krill_complex")
+    let imageName: String?
+
+    init(id: String, name: String, description: String, details: String,
+         unit: String, categoryId: String, isAvailable: Bool = true,
+         imageSystemName: String = "pill.fill", imageName: String? = nil) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.details = details
+        self.unit = unit
+        self.categoryId = categoryId
+        self.isAvailable = isAvailable
+        self.imageSystemName = imageSystemName
+        self.imageName = imageName
+    }
 
     static func == (lhs: Product, rhs: Product) -> Bool { lhs.id == rhs.id }
     func hash(into hasher: inout Hasher) { hasher.combine(id) }

@@ -28,15 +28,8 @@ struct ProductCardView: View {
 
     var body: some View {
         HStack(spacing: 14) {
-            // Icon
-            ZStack {
-                RoundedRectangle(cornerRadius: 14)
-                    .fill(Color.brandPrimary.opacity(0.1))
-                    .frame(width: 60, height: 60)
-                Image(systemName: product.imageSystemName)
-                    .font(.system(size: 26))
-                    .foregroundColor(.brandPrimary)
-            }
+            // Icon / Image
+            ProductImageView(product: product, size: 60, cornerRadius: 14)
 
             // Info
             VStack(alignment: .leading, spacing: 4) {

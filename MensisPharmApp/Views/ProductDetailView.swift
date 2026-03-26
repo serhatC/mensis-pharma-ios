@@ -17,10 +17,7 @@ struct ProductDetailView: View {
                         endPoint: .bottomTrailing
                     )
                     VStack(spacing: 12) {
-                        Image(systemName: product.imageSystemName)
-                            .font(.system(size: 60))
-                            .foregroundColor(.white)
-                            .shadow(color: .black.opacity(0.2), radius: 4)
+                        ProductImageViewLarge(product: product)
                         if !product.isAvailable {
                             Text("Stokta Yok")
                                 .font(.caption)

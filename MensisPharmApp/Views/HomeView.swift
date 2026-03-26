@@ -175,12 +175,7 @@ struct ProductRowView: View {
 
     var body: some View {
         HStack(spacing: 12) {
-            Image(systemName: product.imageSystemName)
-                .font(.system(size: 22))
-                .foregroundColor(.brandPrimary)
-                .frame(width: 44, height: 44)
-                .background(Color.brandPrimary.opacity(0.1))
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+            ProductImageView(product: product, size: 44, cornerRadius: 10)
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(product.name)

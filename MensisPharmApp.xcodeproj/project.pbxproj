@@ -1,0 +1,410 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04FB88166748809B89EF6C19 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE1062103F319016596F7B /* CheckoutView.swift */; };
+		1585EB2E6DF3D4244DCA9329 /* OrderSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74B62E27D6B75D650B743E3 /* OrderSuccessView.swift */; };
+		18960BE20092162B16D8E79C /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D57AA025F8C083B9D7C9E7 /* CartViewModel.swift */; };
+		1C21559ECD1E3BEF0708E56A /* CustomerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCD2BABC08E62581B504BAA /* CustomerInfo.swift */; };
+		31B640265E343556761CEA28 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290890972603EC3EF3FB294C /* CartItem.swift */; };
+		369F5015D76CD41905C12C87 /* ProductStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A252F0382BD990F569BBD2 /* ProductStore.swift */; };
+		72AD9E2B03B5E6EE52D4A27A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3564959FBEB724F6A3B80565 /* HomeView.swift */; };
+		7519F1E1C676A32B43C0426A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1409B6BCC499BA4892903B7 /* MessageUI.framework */; };
+		77C84BD69A6B124AA793ECE5 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA99BCA267C2F63A0C194AEB /* ProductDetailView.swift */; };
+		92CD56B245FE66C315429F21 /* MensisPharmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E203713A28EAD308220F7 /* MensisPharmApp.swift */; };
+		9A661BCC6C32EEFA9AFC94F0 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB039EBC6365A082E8543B0 /* CartView.swift */; };
+		B1EC2B6DE6B1B3AF460E41A0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48AD4A685138FCEBD2D992A7 /* ContentView.swift */; };
+		C2B22D8D2DAABFF9A80BB60C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BA41AABFA022708199AE8B /* Product.swift */; };
+		C8447FAAABCFDEC5F52C23B2 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ACB2644210B88659B3CCB5 /* ProductListView.swift */; };
+		E6C544BDF042CD895188C117 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04856930748E91CFD50B0B23 /* AboutView.swift */; };
+		F6D9698E65A479AFD4AB8AFA /* MailComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D3B3A61F26CE4AE58D53D9 /* MailComposeView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		00A252F0382BD990F569BBD2 /* ProductStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStore.swift; sourceTree = "<group>"; };
+		04856930748E91CFD50B0B23 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		06ACB2644210B88659B3CCB5 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
+		290890972603EC3EF3FB294C /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
+		3564959FBEB724F6A3B80565 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		3CCD2BABC08E62581B504BAA /* CustomerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerInfo.swift; sourceTree = "<group>"; };
+		48AD4A685138FCEBD2D992A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5EB039EBC6365A082E8543B0 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		79D57AA025F8C083B9D7C9E7 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		8E4DEF0741F4ADF9C558CE30 /* MensisPharmApp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = MensisPharmApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9474DF91A882680EE24D2F7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A01E203713A28EAD308220F7 /* MensisPharmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MensisPharmApp.swift; sourceTree = "<group>"; };
+		A3D3B3A61F26CE4AE58D53D9 /* MailComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeView.swift; sourceTree = "<group>"; };
+		A74B62E27D6B75D650B743E3 /* OrderSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSuccessView.swift; sourceTree = "<group>"; };
+		A9BA41AABFA022708199AE8B /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		CCFE1062103F319016596F7B /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
+		EA99BCA267C2F63A0C194AEB /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
+		F1409B6BCC499BA4892903B7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2446B9DCDF9BF2B731E9D4A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7519F1E1C676A32B43C0426A /* MessageUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C26B077AFC9D00073FB7296 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8E4DEF0741F4ADF9C558CE30 /* MensisPharmApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		357D5A5F80AB8D04D0176B05 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				04856930748E91CFD50B0B23 /* AboutView.swift */,
+				5EB039EBC6365A082E8543B0 /* CartView.swift */,
+				CCFE1062103F319016596F7B /* CheckoutView.swift */,
+				3564959FBEB724F6A3B80565 /* HomeView.swift */,
+				A74B62E27D6B75D650B743E3 /* OrderSuccessView.swift */,
+				EA99BCA267C2F63A0C194AEB /* ProductDetailView.swift */,
+				06ACB2644210B88659B3CCB5 /* ProductListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		60EFBC210893C61072D802D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1409B6BCC499BA4892903B7 /* MessageUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		69896F702F3BC1E61AA6D190 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				79D57AA025F8C083B9D7C9E7 /* CartViewModel.swift */,
+				00A252F0382BD990F569BBD2 /* ProductStore.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		887BFF99E912F12F05650485 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				290890972603EC3EF3FB294C /* CartItem.swift */,
+				3CCD2BABC08E62581B504BAA /* CustomerInfo.swift */,
+				A9BA41AABFA022708199AE8B /* Product.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		96998D1617EEFC17D2DDD4BF /* MensisPharmApp */ = {
+			isa = PBXGroup;
+			children = (
+				48AD4A685138FCEBD2D992A7 /* ContentView.swift */,
+				9474DF91A882680EE24D2F7B /* Info.plist */,
+				A01E203713A28EAD308220F7 /* MensisPharmApp.swift */,
+				887BFF99E912F12F05650485 /* Models */,
+				C4CCBC713AA21213E0AE9E4E /* Services */,
+				69896F702F3BC1E61AA6D190 /* ViewModels */,
+				357D5A5F80AB8D04D0176B05 /* Views */,
+			);
+			path = MensisPharmApp;
+			sourceTree = "<group>";
+		};
+		9A00C46E6F64B6DF3E129658 = {
+			isa = PBXGroup;
+			children = (
+				96998D1617EEFC17D2DDD4BF /* MensisPharmApp */,
+				60EFBC210893C61072D802D3 /* Frameworks */,
+				2C26B077AFC9D00073FB7296 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C4CCBC713AA21213E0AE9E4E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A3D3B3A61F26CE4AE58D53D9 /* MailComposeView.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4289CCBD22FEDA1632331F8C /* MensisPharmApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAD0CD457E22690B6DCD6293 /* Build configuration list for PBXNativeTarget "MensisPharmApp" */;
+			buildPhases = (
+				1E22AE825A38F1D5933854B1 /* Sources */,
+				2446B9DCDF9BF2B731E9D4A5 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MensisPharmApp;
+			packageProductDependencies = (
+			);
+			productName = MensisPharmApp;
+			productReference = 8E4DEF0741F4ADF9C558CE30 /* MensisPharmApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E09FC36C1A91D2E507F4E827 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					4289CCBD22FEDA1632331F8C = {
+						DevelopmentTeam = "";
+					};
+				};
+			};
+			buildConfigurationList = A1FEC43DA946FC3FB2C2BA70 /* Build configuration list for PBXProject "MensisPharmApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 9A00C46E6F64B6DF3E129658;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 2C26B077AFC9D00073FB7296 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4289CCBD22FEDA1632331F8C /* MensisPharmApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1E22AE825A38F1D5933854B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6C544BDF042CD895188C117 /* AboutView.swift in Sources */,
+				31B640265E343556761CEA28 /* CartItem.swift in Sources */,
+				9A661BCC6C32EEFA9AFC94F0 /* CartView.swift in Sources */,
+				18960BE20092162B16D8E79C /* CartViewModel.swift in Sources */,
+				04FB88166748809B89EF6C19 /* CheckoutView.swift in Sources */,
+				B1EC2B6DE6B1B3AF460E41A0 /* ContentView.swift in Sources */,
+				1C21559ECD1E3BEF0708E56A /* CustomerInfo.swift in Sources */,
+				72AD9E2B03B5E6EE52D4A27A /* HomeView.swift in Sources */,
+				F6D9698E65A479AFD4AB8AFA /* MailComposeView.swift in Sources */,
+				92CD56B245FE66C315429F21 /* MensisPharmApp.swift in Sources */,
+				1585EB2E6DF3D4244DCA9329 /* OrderSuccessView.swift in Sources */,
+				C2B22D8D2DAABFF9A80BB60C /* Product.swift in Sources */,
+				77C84BD69A6B124AA793ECE5 /* ProductDetailView.swift in Sources */,
+				C8447FAAABCFDEC5F52C23B2 /* ProductListView.swift in Sources */,
+				369F5015D76CD41905C12C87 /* ProductStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3E2A1DAA620E592C6689DC9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mensis Pharma";
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mensispharma.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		7448404E1B9E181541A7FC71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Mensis Pharma";
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mensispharma.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		8D0467AB6C1C6012C892D9F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = MensisPharmApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D4F05FA2B81096182F9B6A9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = MensisPharmApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1FEC43DA946FC3FB2C2BA70 /* Build configuration list for PBXProject "MensisPharmApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7448404E1B9E181541A7FC71 /* Debug */,
+				3E2A1DAA620E592C6689DC9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		EAD0CD457E22690B6DCD6293 /* Build configuration list for PBXNativeTarget "MensisPharmApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D0467AB6C1C6012C892D9F2 /* Debug */,
+				D4F05FA2B81096182F9B6A9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E09FC36C1A91D2E507F4E827 /* Project object */;
+}
