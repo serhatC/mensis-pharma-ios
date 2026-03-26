@@ -3,10 +3,10 @@ import MessageUI
 
 struct CheckoutView: View {
     @EnvironmentObject var cart: CartViewModel
+    @EnvironmentObject var lang: LanguageManager
     @Environment(\.dismiss) var dismiss
 
     @State private var showMailCompose = false
-    @State private var showMailtoFallback = false
     @State private var showSuccess = false
     @State private var showValidationError = false
     @State private var validationMessage = ""
@@ -17,23 +17,20 @@ struct CheckoutView: View {
 
                 // Info Banner
                 HStack(spacing: 10) {
-                    Image(systemName: "info.circle.fill")
-                        .foregroundColor(.brandPrimary)
-                    Text("Bilgilerinizi girdikten sonra sipariş e-postası hazırlanacak ve tarafımıza iletilecektir.")
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
+                    Image(systemName: "info.circle.fill").foregroundColor(.brandPrimary)
+                    Text(lang.s(
+                        "Bilgilerinizi girdikten sonra sipariş e-postası hazırlanacak ve tarafımıza iletilecektir.",
+                        "After filling in your details, an order email will be prepared and sent to us."
+                    ))
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
                 }
                 .padding(14)
                 .background(Color.brandPrimary.opacity(0.08))
                 .cornerRadius(12)
 
-                // Order summary
                 orderSummarySection
-
-                // Customer info form
                 formSection
-
-                // Submit button
                 submitButton
 
                 Spacer(minLength: 40)
@@ -41,10 +38,10 @@ struct CheckoutView: View {
             .padding()
         }
         .background(Color(.systemGroupedBackground))
-        .navigationTitle("Sipariş Bilgileri")
+        .navigationTitle(lang.s("Sipariş Bilgileri", "Order Details"))
         .navigationBarTitleDisplayMode(.inline)
-        .alert("Eksik Bilgi", isPresented: $showValidationError) {
-            Button("Tamam", role: .cancel) {}
+        .alert(lang.s("Eksik Bilgi", "Missing Information"), isPresented: $showValidationError) {
+            Button(lang.s("Tamam", "OK"), role: .cancel) {}
         } message: {
             Text(validationMessage)
         }
@@ -69,7 +66,7 @@ struct CheckoutView: View {
 
     private var orderSummarySection: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Label("Sipariş Özeti", systemImage: "cart.fill")
+            Label(lang.s("Sipariş Özeti", "Order Summary"), systemImage: "cart.fill")
                 .font(.headline)
                 .foregroundColor(.brandPrimary)
 
@@ -77,9 +74,8 @@ struct CheckoutView: View {
                 HStack {
                     Text("• \(item.product.name)")
                         .font(.subheadline)
-                        .foregroundColor(.primary)
                     Spacer()
-                    Text("\(item.quantity) adet")
+                    Text("\(item.quantity) \(lang.s("adet", "pcs"))")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
@@ -88,10 +84,9 @@ struct CheckoutView: View {
             Divider()
 
             HStack {
-                Text("Toplam")
-                    .fontWeight(.semibold)
+                Text(lang.s("Toplam", "Total")).fontWeight(.semibold)
                 Spacer()
-                Text("\(cart.totalItemCount) ürün")
+                Text("\(cart.totalItemCount) \(lang.s("ürün", "items"))")
                     .fontWeight(.semibold)
                     .foregroundColor(.brandPrimary)
             }
@@ -106,41 +101,43 @@ struct CheckoutView: View {
 
     private var formSection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Label("Müşteri Bilgileri", systemImage: "person.fill")
+            Label(lang.s("Müşteri Bilgileri", "Customer Information"), systemImage: "person.fill")
                 .font(.headline)
                 .foregroundColor(.brandPrimary)
 
-            FormField(title: "Ad Soyad *", icon: "person", placeholder: "Adınız ve soyadınız",
+            FormField(title: lang.s("Ad Soyad *", "Full Name *"),
+                      icon: "person", placeholder: lang.s("Adınız ve soyadınız", "Your full name"),
                       text: $cart.customerInfo.name)
 
-            FormField(title: "Telefon *", icon: "phone", placeholder: "05XX XXX XX XX",
+            FormField(title: lang.s("Telefon *", "Phone *"),
+                      icon: "phone", placeholder: lang.s("05XX XXX XX XX", "+1 (XXX) XXX-XXXX"),
                       text: $cart.customerInfo.phone, keyboard: .phonePad)
 
-            FormField(title: "E-posta", icon: "envelope", placeholder: "ornek@email.com",
+            FormField(title: lang.s("E-posta", "Email"),
+                      icon: "envelope", placeholder: lang.s("ornek@email.com", "example@email.com"),
                       text: $cart.customerInfo.email, keyboard: .emailAddress)
 
-            FormField(title: "Şehir *", icon: "building.2", placeholder: "İstanbul",
+            FormField(title: lang.s("Şehir *", "City *"),
+                      icon: "building.2", placeholder: lang.s("İstanbul", "New York"),
                       text: $cart.customerInfo.city)
 
-            FormField(title: "İlçe", icon: "map", placeholder: "Kadıköy",
+            FormField(title: lang.s("İlçe", "District / State"),
+                      icon: "map", placeholder: lang.s("Kadıköy", "Manhattan"),
                       text: $cart.customerInfo.district)
 
+            // Address
             VStack(alignment: .leading, spacing: 6) {
-                Label("Teslimat Adresi *", systemImage: "house.fill")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+                Label(lang.s("Teslimat Adresi *", "Delivery Address *"), systemImage: "house.fill")
+                    .font(.subheadline).foregroundColor(.secondary)
                 TextEditor(text: $cart.customerInfo.address)
                     .frame(minHeight: 80)
                     .padding(10)
                     .background(Color(.systemBackground))
                     .cornerRadius(10)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color(.systemGray4), lineWidth: 1)
-                    )
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(.systemGray4), lineWidth: 1))
                     .overlay(alignment: .topLeading) {
                         if cart.customerInfo.address.isEmpty {
-                            Text("Tam teslimat adresinizi giriniz...")
+                            Text(lang.s("Tam teslimat adresinizi giriniz...", "Enter your full delivery address..."))
                                 .foregroundColor(.secondary.opacity(0.6))
                                 .padding(14)
                                 .allowsHitTesting(false)
@@ -148,22 +145,19 @@ struct CheckoutView: View {
                     }
             }
 
+            // Notes
             VStack(alignment: .leading, spacing: 6) {
-                Label("Notlar", systemImage: "note.text")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+                Label(lang.s("Notlar", "Notes"), systemImage: "note.text")
+                    .font(.subheadline).foregroundColor(.secondary)
                 TextEditor(text: $cart.customerInfo.notes)
                     .frame(minHeight: 60)
                     .padding(10)
                     .background(Color(.systemBackground))
                     .cornerRadius(10)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color(.systemGray4), lineWidth: 1)
-                    )
+                    .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(.systemGray4), lineWidth: 1))
                     .overlay(alignment: .topLeading) {
                         if cart.customerInfo.notes.isEmpty {
-                            Text("Özel istekleriniz veya notlarınız...")
+                            Text(lang.s("Özel istekleriniz veya notlarınız...", "Special requests or notes..."))
                                 .foregroundColor(.secondary.opacity(0.6))
                                 .padding(14)
                                 .allowsHitTesting(false)
@@ -171,7 +165,7 @@ struct CheckoutView: View {
                     }
             }
 
-            Text("* zorunlu alanlar")
+            Text(lang.s("* zorunlu alanlar", "* required fields"))
                 .font(.caption)
                 .foregroundColor(.secondary)
         }
@@ -187,7 +181,7 @@ struct CheckoutView: View {
         Button(action: submitOrder) {
             HStack {
                 Image(systemName: "paperplane.fill")
-                Text("Siparişi Gönder")
+                Text(lang.s("Siparişi Gönder", "Send Order"))
                     .fontWeight(.semibold)
                 Spacer()
                 Image(systemName: "chevron.right")
@@ -201,11 +195,13 @@ struct CheckoutView: View {
 
     private func submitOrder() {
         guard cart.customerInfo.isValid else {
-            validationMessage = "Lütfen Ad Soyad, Telefon, Şehir ve Adres alanlarını doldurunuz."
+            validationMessage = lang.s(
+                "Lütfen Ad Soyad, Telefon, Şehir ve Adres alanlarını doldurunuz.",
+                "Please fill in Full Name, Phone, City and Address fields."
+            )
             showValidationError = true
             return
         }
-
         if MailComposeView.canSendMail {
             showMailCompose = true
         } else if let url = cart.mailtoURL(), UIApplication.shared.canOpenURL(url) {
@@ -213,7 +209,10 @@ struct CheckoutView: View {
             cart.clearCart()
             showSuccess = true
         } else {
-            validationMessage = "Bu cihazda e-posta uygulaması bulunamadı. Lütfen \(cart.orderEmail) adresine manuel olarak sipariş iletin."
+            validationMessage = lang.s(
+                "Bu cihazda e-posta uygulaması bulunamadı. Lütfen \(cart.orderEmail) adresine manuel olarak sipariş iletin.",
+                "No mail app found on this device. Please send your order manually to \(cart.orderEmail)."
+            )
             showValidationError = true
         }
     }
@@ -237,10 +236,7 @@ struct FormField: View {
                 .padding(12)
                 .background(Color(.systemBackground))
                 .cornerRadius(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color(.systemGray4), lineWidth: 1)
-                )
+                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(.systemGray4), lineWidth: 1))
         }
     }
 }

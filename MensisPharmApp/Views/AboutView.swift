@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct AboutView: View {
-    // Update these with real contact details
+    @EnvironmentObject var lang: LanguageManager
+
     let phone = "+90 XXX XXX XX XX"
     let email = "info@mensispharma.com"
     let website = "www.mensispharma.com"
@@ -19,14 +20,21 @@ struct AboutView: View {
                             startPoint: .topLeading, endPoint: .bottomTrailing
                         )
                         VStack(spacing: 10) {
-                            Image(systemName: "cross.case.fill")
-                                .font(.system(size: 50))
-                                .foregroundColor(.white)
+                            if UIImage(named: "logo") != nil {
+                                Image("logo")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 64)
+                            } else {
+                                Image(systemName: "cross.case.fill")
+                                    .font(.system(size: 50))
+                                    .foregroundColor(.white)
+                            }
                             Text("Mensis Pharma")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
-                            Text("Sağlıklı Yaşam Ürünleri")
+                            Text(lang.s("Sağlıklı Yaşam Ürünleri", "Health & Wellness Products"))
                                 .font(.subheadline)
                                 .foregroundColor(.white.opacity(0.85))
                         }
@@ -35,14 +43,13 @@ struct AboutView: View {
 
                     // About Text
                     VStack(alignment: .leading, spacing: 10) {
-                        Label("Hakkımızda", systemImage: "building.2.fill")
-                            .font(.headline)
-                            .foregroundColor(.brandPrimary)
-
-                        Text("Mensis Pharma olarak, müşterilerimize en kaliteli vitamin, mineral ve takviye ürünlerini sunmaktayız. Sağlıklı yaşam için en iyi ürünleri seçerek kapınıza ulaştırıyoruz.")
-                            .font(.body)
-                            .foregroundColor(.secondary)
-                            .lineSpacing(4)
+                        Label(lang.s("Hakkımızda", "About Us"), systemImage: "building.2.fill")
+                            .font(.headline).foregroundColor(.brandPrimary)
+                        Text(lang.s(
+                            "Mensis Pharma olarak, müşterilerimize en kaliteli vitamin, mineral ve takviye ürünlerini sunmaktayız. Sağlıklı yaşam için en iyi ürünleri seçerek kapınıza ulaştırıyoruz.",
+                            "At Mensis Pharma, we provide our customers with the highest quality vitamins, minerals, and dietary supplements. We select the best products for a healthy life and deliver them to your door."
+                        ))
+                        .font(.body).foregroundColor(.secondary).lineSpacing(4)
                     }
                     .padding(16)
                     .background(Color(.systemBackground))
@@ -50,27 +57,27 @@ struct AboutView: View {
                     .shadow(color: .black.opacity(0.05), radius: 4)
                     .padding(.horizontal)
 
-                    // Contact Info
+                    // Contact
                     VStack(alignment: .leading, spacing: 12) {
-                        Label("İletişim", systemImage: "phone.fill")
-                            .font(.headline)
-                            .foregroundColor(.brandPrimary)
+                        Label(lang.s("İletişim", "Contact"), systemImage: "phone.fill")
+                            .font(.headline).foregroundColor(.brandPrimary)
 
-                        ContactRow(icon: "phone.fill", color: .green, label: "Telefon", value: phone) {
+                        ContactRow(icon: "phone.fill", color: .green,
+                                   label: lang.s("Telefon", "Phone"), value: phone) {
                             if let url = URL(string: "tel://\(phone.filter { $0.isNumber })") {
                                 UIApplication.shared.open(url)
                             }
                         }
-
-                        ContactRow(icon: "envelope.fill", color: .brandPrimary, label: "E-posta", value: email) {
+                        ContactRow(icon: "envelope.fill", color: .brandPrimary,
+                                   label: lang.s("E-posta", "Email"), value: email) {
                             if let url = URL(string: "mailto:\(email)") {
                                 UIApplication.shared.open(url)
                             }
                         }
-
-                        ContactRow(icon: "globe", color: .purple, label: "Website", value: website, action: nil)
-
-                        ContactRow(icon: "location.fill", color: .red, label: "Adres", value: address, action: nil)
+                        ContactRow(icon: "globe", color: .purple,
+                                   label: lang.s("Website", "Website"), value: website, action: nil)
+                        ContactRow(icon: "location.fill", color: .red,
+                                   label: lang.s("Adres", "Address"), value: address, action: nil)
                     }
                     .padding(16)
                     .background(Color(.systemBackground))
@@ -78,16 +85,27 @@ struct AboutView: View {
                     .shadow(color: .black.opacity(0.05), radius: 4)
                     .padding(.horizontal)
 
-                    // How it works
+                    // How to Order
                     VStack(alignment: .leading, spacing: 14) {
-                        Label("Nasıl Sipariş Verilir?", systemImage: "questionmark.circle.fill")
-                            .font(.headline)
-                            .foregroundColor(.brandPrimary)
+                        Label(lang.s("Nasıl Sipariş Verilir?", "How to Order?"), systemImage: "questionmark.circle.fill")
+                            .font(.headline).foregroundColor(.brandPrimary)
 
-                        StepRow(number: "1", text: "Ürünler sayfasından istediğiniz ürünleri sepete ekleyin.")
-                        StepRow(number: "2", text: "Sepetinizi gözden geçirin ve 'Sipariş Ver' butonuna basın.")
-                        StepRow(number: "3", text: "Teslimat bilgilerinizi girin ve siparişi gönderin.")
-                        StepRow(number: "4", text: "Ekibimiz size en kısa sürede fiyat ve kargo bilgisiyle dönüş yapar.")
+                        StepRow(number: "1", text: lang.s(
+                            "Ürünler sayfasından istediğiniz ürünleri sepete ekleyin.",
+                            "Browse the Products tab and add items to your cart."
+                        ))
+                        StepRow(number: "2", text: lang.s(
+                            "Sepetinizi gözden geçirin ve 'Sipariş Ver' butonuna basın.",
+                            "Review your cart and tap 'Place Order'."
+                        ))
+                        StepRow(number: "3", text: lang.s(
+                            "Teslimat bilgilerinizi girin ve siparişi gönderin.",
+                            "Enter your delivery details and send the order."
+                        ))
+                        StepRow(number: "4", text: lang.s(
+                            "Ekibimiz size en kısa sürede fiyat ve kargo bilgisiyle dönüş yapar.",
+                            "Our team will reply with pricing and shipping details as soon as possible."
+                        ))
                     }
                     .padding(16)
                     .background(Color(.systemBackground))
@@ -95,16 +113,14 @@ struct AboutView: View {
                     .shadow(color: .black.opacity(0.05), radius: 4)
                     .padding(.horizontal)
 
-                    // App version
                     Text("Mensis Pharma v1.0")
                         .font(.caption)
                         .foregroundColor(.secondary)
                         .padding(.bottom, 20)
                 }
-                .padding(.top, 0)
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Hakkımızda")
+            .navigationTitle(lang.s("Hakkımızda", "About"))
             .navigationBarTitleDisplayMode(.inline)
         }
     }
@@ -126,20 +142,14 @@ struct ContactRow: View {
                     .frame(width: 36, height: 36)
                     .background(color.opacity(0.12))
                     .clipShape(Circle())
-
                 VStack(alignment: .leading, spacing: 1) {
-                    Text(label)
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                    Text(value)
-                        .font(.subheadline)
+                    Text(label).font(.caption).foregroundColor(.secondary)
+                    Text(value).font(.subheadline)
                         .foregroundColor(action != nil ? .brandPrimary : .primary)
                 }
                 Spacer()
                 if action != nil {
-                    Image(systemName: "arrow.up.right.circle")
-                        .foregroundColor(.secondary)
-                        .font(.caption)
+                    Image(systemName: "arrow.up.right.circle").foregroundColor(.secondary).font(.caption)
                 }
             }
         }
@@ -155,16 +165,11 @@ struct StepRow: View {
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
             Text(number)
-                .font(.subheadline)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
+                .font(.subheadline).fontWeight(.bold).foregroundColor(.white)
                 .frame(width: 26, height: 26)
                 .background(Color.brandPrimary)
                 .clipShape(Circle())
-            Text(text)
-                .font(.subheadline)
-                .foregroundColor(.primary)
-                .lineSpacing(3)
+            Text(text).font(.subheadline).foregroundColor(.primary).lineSpacing(3)
             Spacer()
         }
     }

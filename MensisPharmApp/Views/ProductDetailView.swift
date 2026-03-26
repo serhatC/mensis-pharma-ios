@@ -3,6 +3,7 @@ import SwiftUI
 struct ProductDetailView: View {
     let product: Product
     @EnvironmentObject var cart: CartViewModel
+    @EnvironmentObject var lang: LanguageManager
     @State private var addedAnimation = false
 
     var body: some View {
@@ -19,7 +20,7 @@ struct ProductDetailView: View {
                     VStack(spacing: 12) {
                         ProductImageViewLarge(product: product)
                         if !product.isAvailable {
-                            Text("Stokta Yok")
+                            Text(lang.s("Stokta Yok", "Out of Stock"))
                                 .font(.caption)
                                 .fontWeight(.semibold)
                                 .foregroundColor(.white)
@@ -56,7 +57,7 @@ struct ProductDetailView: View {
 
                     // Details
                     VStack(alignment: .leading, spacing: 8) {
-                        Label("Ürün Detayları", systemImage: "info.circle.fill")
+                        Label(lang.s("Ürün Detayları", "Product Details"), systemImage: "info.circle.fill")
                             .font(.headline)
                             .foregroundColor(.brandPrimary)
                         Text(product.details)
@@ -69,17 +70,19 @@ struct ProductDetailView: View {
 
                     // Price note
                     HStack {
-                        Image(systemName: "tag.fill")
-                            .foregroundColor(.orange)
-                        Text("Fiyat bilgisi için sipariş veriniz. En kısa sürede dönüş yapılacaktır.")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
+                        Image(systemName: "tag.fill").foregroundColor(.orange)
+                        Text(lang.s(
+                            "Fiyat bilgisi için sipariş veriniz. En kısa sürede dönüş yapılacaktır.",
+                            "Place an order for pricing. We will get back to you shortly."
+                        ))
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
                     }
                     .padding(14)
                     .background(Color.orange.opacity(0.08))
                     .cornerRadius(12)
 
-                    // Add to cart button
+                    // Cart controls
                     if product.isAvailable {
                         if cart.isInCart(product) {
                             HStack(spacing: 16) {
@@ -99,7 +102,7 @@ struct ProductDetailView: View {
                                 }
                                 Spacer()
                                 Button(action: { cart.remove(product) }) {
-                                    Label("Çıkar", systemImage: "trash")
+                                    Label(lang.s("Çıkar", "Remove"), systemImage: "trash")
                                         .font(.subheadline)
                                         .foregroundColor(.red)
                                 }
@@ -120,7 +123,9 @@ struct ProductDetailView: View {
                             }) {
                                 HStack {
                                     Image(systemName: addedAnimation ? "checkmark.circle.fill" : "cart.badge.plus")
-                                    Text(addedAnimation ? "Sepete Eklendi!" : "Sepete Ekle")
+                                    Text(addedAnimation
+                                         ? lang.s("Sepete Eklendi!", "Added to Cart!")
+                                         : lang.s("Sepete Ekle", "Add to Cart"))
                                         .fontWeight(.semibold)
                                 }
                                 .frame(maxWidth: .infinity)
@@ -133,12 +138,15 @@ struct ProductDetailView: View {
                             }
                         }
                     } else {
-                        Text("Bu ürün şu anda stokta bulunmamaktadır")
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color(.systemGray5))
-                            .foregroundColor(.secondary)
-                            .cornerRadius(14)
+                        Text(lang.s(
+                            "Bu ürün şu anda stokta bulunmamaktadır",
+                            "This product is currently out of stock"
+                        ))
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color(.systemGray5))
+                        .foregroundColor(.secondary)
+                        .cornerRadius(14)
                     }
                 }
                 .padding(20)

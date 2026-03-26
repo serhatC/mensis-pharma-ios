@@ -2,6 +2,7 @@ import SwiftUI
 
 struct CartView: View {
     @EnvironmentObject var cart: CartViewModel
+    @EnvironmentObject var lang: LanguageManager
     @State private var showCheckout = false
 
     var body: some View {
@@ -13,12 +14,12 @@ struct CartView: View {
                     cartListView
                 }
             }
-            .navigationTitle("Sepetim")
+            .navigationTitle(lang.s("Sepetim", "My Cart"))
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 if !cart.isEmpty {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Temizle") {
+                        Button(lang.s("Temizle", "Clear")) {
                             withAnimation { cart.clearCart() }
                         }
                         .foregroundColor(.red)
@@ -31,26 +32,25 @@ struct CartView: View {
         }
     }
 
-    // MARK: - Empty State
-
     private var emptyCartView: some View {
         VStack(spacing: 20) {
             Image(systemName: "cart.badge.questionmark")
                 .font(.system(size: 64))
                 .foregroundColor(.secondary.opacity(0.5))
-            Text("Sepetiniz Boş")
+            Text(lang.s("Sepetiniz Boş", "Your Cart is Empty"))
                 .font(.title2)
                 .fontWeight(.semibold)
                 .foregroundColor(.secondary)
-            Text("Ürünlere göz atarak sipariş oluşturabilirsiniz.")
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 40)
+            Text(lang.s(
+                "Ürünlere göz atarak sipariş oluşturabilirsiniz.",
+                "Browse products to create your order."
+            ))
+            .font(.subheadline)
+            .foregroundColor(.secondary)
+            .multilineTextAlignment(.center)
+            .padding(.horizontal, 40)
         }
     }
-
-    // MARK: - Cart List
 
     private var cartListView: some View {
         VStack(spacing: 0) {
@@ -60,39 +60,38 @@ struct CartView: View {
                         CartItemRow(item: item)
                     }
                     .onDelete { indexSet in
-                        for i in indexSet {
-                            cart.remove(cart.items[i].product)
-                        }
+                        for i in indexSet { cart.remove(cart.items[i].product) }
                     }
                 } header: {
-                    Text("Ürünler (\(cart.items.count) çeşit)")
+                    Text(lang.s("Ürünler (\(cart.items.count) çeşit)", "Products (\(cart.items.count) items)"))
                 }
 
                 Section {
                     HStack {
-                        Text("Toplam Adet")
+                        Text(lang.s("Toplam Adet", "Total Quantity"))
                         Spacer()
-                        Text("\(cart.totalItemCount) adet")
+                        Text("\(cart.totalItemCount) \(lang.s("adet", "items"))")
                             .fontWeight(.semibold)
                     }
-                    HStack {
-                        Image(systemName: "info.circle")
-                            .foregroundColor(.orange)
-                        Text("Fiyatlandırma siparişiniz alındıktan sonra tarafınıza iletilecektir.")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+                    HStack(alignment: .top, spacing: 8) {
+                        Image(systemName: "info.circle").foregroundColor(.orange)
+                        Text(lang.s(
+                            "Fiyatlandırma siparişiniz alındıktan sonra tarafınıza iletilecektir.",
+                            "Pricing will be communicated after your order is received."
+                        ))
+                        .font(.caption)
+                        .foregroundColor(.secondary)
                     }
                 } header: {
-                    Text("Özet")
+                    Text(lang.s("Özet", "Summary"))
                 }
             }
             .listStyle(.insetGrouped)
 
-            // Checkout Button
             Button(action: { showCheckout = true }) {
                 HStack {
                     Image(systemName: "envelope.fill")
-                    Text("Sipariş Ver")
+                    Text(lang.s("Sipariş Ver", "Place Order"))
                         .fontWeight(.semibold)
                     Spacer()
                     Image(systemName: "arrow.right")
@@ -114,13 +113,7 @@ struct CartItemRow: View {
 
     var body: some View {
         HStack(spacing: 12) {
-            Image(systemName: item.product.imageSystemName)
-                .font(.system(size: 20))
-                .foregroundColor(.brandPrimary)
-                .frame(width: 40, height: 40)
-                .background(Color.brandPrimary.opacity(0.1))
-                .clipShape(RoundedRectangle(cornerRadius: 8))
-
+            ProductImageView(product: item.product, size: 40, cornerRadius: 8)
             VStack(alignment: .leading, spacing: 2) {
                 Text(item.product.name)
                     .font(.subheadline)
@@ -130,9 +123,7 @@ struct CartItemRow: View {
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
-
             Spacer()
-
             HStack(spacing: 2) {
                 Button(action: { cart.decreaseQuantity(of: item.product) }) {
                     Image(systemName: "minus.circle.fill")
@@ -140,12 +131,10 @@ struct CartItemRow: View {
                         .foregroundColor(.secondary)
                 }
                 .buttonStyle(PlainButtonStyle())
-
                 Text("\(item.quantity)")
                     .font(.headline)
                     .frame(minWidth: 28)
                     .multilineTextAlignment(.center)
-
                 Button(action: { cart.add(item.product) }) {
                     Image(systemName: "plus.circle.fill")
                         .font(.system(size: 24))

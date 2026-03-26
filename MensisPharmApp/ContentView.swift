@@ -2,23 +2,24 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var cart: CartViewModel
+    @EnvironmentObject var lang: LanguageManager
 
     var body: some View {
         TabView {
             HomeView()
                 .tabItem {
-                    Label("Ürünler", systemImage: "pills.fill")
+                    Label(lang.s("Ürünler", "Products"), systemImage: "pills.fill")
                 }
 
             CartView()
                 .tabItem {
-                    Label("Sepet", systemImage: "cart.fill")
+                    Label(lang.s("Sepet", "Cart"), systemImage: "cart.fill")
                 }
                 .badge(cart.totalItemCount > 0 ? "\(cart.totalItemCount)" : nil)
 
             AboutView()
                 .tabItem {
-                    Label("Hakkımızda", systemImage: "info.circle.fill")
+                    Label(lang.s("Hakkımızda", "About"), systemImage: "info.circle.fill")
                 }
         }
         .tint(Color.brandPrimary)

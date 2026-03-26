@@ -3,24 +3,20 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var store: ProductStore
     @EnvironmentObject var cart: CartViewModel
+    @EnvironmentObject var lang: LanguageManager
 
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 0) {
-                    // Hero Banner
                     heroBanner
-
-                    // Search Bar
                     searchBar
                         .padding(.horizontal)
                         .padding(.vertical, 12)
 
                     if store.searchText.isEmpty {
-                        // Categories Grid
                         categoriesGrid
                     } else {
-                        // Search Results
                         searchResults
                     }
                 }
@@ -29,6 +25,23 @@ struct HomeView: View {
             .navigationTitle("Mensis Pharma")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                // Language toggle
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: { withAnimation(.easeInOut(duration: 0.2)) { lang.toggle() } }) {
+                        HStack(spacing: 4) {
+                            Image(systemName: "globe")
+                                .font(.system(size: 13))
+                            Text(lang.language.rawValue)
+                                .font(.system(size: 13, weight: .bold))
+                        }
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 5)
+                        .background(Color.brandPrimary.opacity(0.12))
+                        .foregroundColor(.brandPrimary)
+                        .clipShape(Capsule())
+                    }
+                }
+                // Cart button
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink(destination: CartView()) {
                         ZStack(alignment: .topTrailing) {
@@ -51,8 +64,7 @@ struct HomeView: View {
         }
     }
 
-    // MARK: - Sub Views
-
+    // MARK: - Hero Banner (shows logo image if "logo" asset exists)
     private var heroBanner: some View {
         ZStack {
             LinearGradient(
@@ -60,16 +72,24 @@ struct HomeView: View {
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
-            VStack(spacing: 8) {
-                Image(systemName: "cross.case.fill")
-                    .font(.system(size: 36))
-                    .foregroundColor(.white.opacity(0.9))
-                Text("Sağlıklı Yaşam\nİçin Doğal Çözümler")
+            VStack(spacing: 10) {
+                if UIImage(named: "logo") != nil {
+                    Image("logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 72)
+                        .padding(.bottom, 4)
+                } else {
+                    Image(systemName: "cross.case.fill")
+                        .font(.system(size: 36))
+                        .foregroundColor(.white.opacity(0.9))
+                }
+                Text(lang.s("Sağlıklı Yaşam\nİçin Doğal Çözümler", "Natural Solutions\nfor a Healthy Life"))
                     .font(.title2)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
-                Text("Sipariş verin, kapınıza gelsin")
+                Text(lang.s("Sipariş verin, kapınıza gelsin", "Order now, delivered to your door"))
                     .font(.subheadline)
                     .foregroundColor(.white.opacity(0.85))
             }
@@ -79,14 +99,12 @@ struct HomeView: View {
 
     private var searchBar: some View {
         HStack {
-            Image(systemName: "magnifyingglass")
-                .foregroundColor(.secondary)
-            TextField("Ürün ara...", text: $store.searchText)
+            Image(systemName: "magnifyingglass").foregroundColor(.secondary)
+            TextField(lang.s("Ürün ara...", "Search products..."), text: $store.searchText)
                 .autocorrectionDisabled()
             if !store.searchText.isEmpty {
                 Button(action: { store.searchText = "" }) {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(.secondary)
+                    Image(systemName: "xmark.circle.fill").foregroundColor(.secondary)
                 }
             }
         }
@@ -130,7 +148,7 @@ struct HomeView: View {
                     Image(systemName: "magnifyingglass")
                         .font(.system(size: 40))
                         .foregroundColor(.secondary)
-                    Text("Sonuç bulunamadı")
+                    Text(lang.s("Sonuç bulunamadı", "No results found"))
                         .font(.headline)
                         .foregroundColor(.secondary)
                 }
@@ -144,6 +162,7 @@ struct HomeView: View {
 
 struct CategoryCardView: View {
     let category: Category
+    @EnvironmentObject var lang: LanguageManager
 
     var body: some View {
         VStack(spacing: 10) {
@@ -158,7 +177,7 @@ struct CategoryCardView: View {
                 .foregroundColor(.primary)
                 .multilineTextAlignment(.center)
                 .lineLimit(2)
-            Text("\(category.products.count) ürün")
+            Text("\(category.products.count) \(lang.s("ürün", "products"))")
                 .font(.caption)
                 .foregroundColor(.secondary)
         }
@@ -176,7 +195,6 @@ struct ProductRowView: View {
     var body: some View {
         HStack(spacing: 12) {
             ProductImageView(product: product, size: 44, cornerRadius: 10)
-
             VStack(alignment: .leading, spacing: 2) {
                 Text(product.name)
                     .font(.subheadline)
